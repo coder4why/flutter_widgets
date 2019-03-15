@@ -70,9 +70,6 @@ class _MyHomePageState extends State<MyHomePage>
       listViews.add(new ListView(
         children: items,
       ));
-//      tabBarViews.add(new TabBarView(
-//        children: listViews,
-//      ));
     }
     return listViews;
   }
