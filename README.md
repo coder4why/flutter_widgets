@@ -17,7 +17,7 @@ samples, guidance on mobile development, and a full API reference.
 ## Example to show how to use flutter widgets;
 
 ![Main](https://github.com/HuPingKang/flutter_widgets/blob/master/images/main.png "main")
-![Drawer](https://github.com/HuPingKang/flutter_widgets/blob/master/images/drawer.png "drawer")
+![Drawer](https://github.com/HuPingKang/flutter_widgets/blob/master/images/drawer.jpg "drawer")
 ![Detail](https://github.com/HuPingKang/flutter_widgets/blob/master/images/detail.png  "detail")
 
 
