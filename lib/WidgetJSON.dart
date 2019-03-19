@@ -9,7 +9,6 @@ class Post {
 }
 
 final List<Post> posts = [
-
   Post(
     title: 'Material Components',
     widgets: [
@@ -20,7 +19,6 @@ final List<Post> posts = [
       'TabBarView',
       'MaterialApp',
       'WidgetsApp',
-
       'Drawer',
       'FloatingActionButton',
       'FlatButton',
@@ -62,7 +60,6 @@ final List<Post> posts = [
       'CupertinoDialogAction',
       'CupertinoSlider',
       'CupertinoSwitch',
-
       'CupertinoPageTransition',
       'CupertinoFullscreenDialogTransition',
       'CupertinoNavigationBar',
@@ -70,10 +67,8 @@ final List<Post> posts = [
       'CupertinoPageScaffold',
       'CupertinoTabScaffold',
       'CupertinoTabView',
-
     ],
   ),
-
   Post(
     title: 'Layout',
     widgets: [
@@ -90,7 +85,6 @@ final List<Post> posts = [
       'FractionallySizedBox',
       'IntrinsicHeight',
       'IntrinsicWidth',
-
       'LimitedBox',
       'Offstage',
       'OverflowBox',
@@ -100,14 +94,12 @@ final List<Post> posts = [
       'CustomSingleChildLayout',
       'Stack',
       'IndexedStack',
-
       'Flow',
       'Table',
       'Wrap',
       'ListBody',
       'ListView',
       'LayoutBuilder',
-
     ],
   ),
   Post(
@@ -171,7 +163,6 @@ final List<Post> posts = [
       'AbsorbPointer',
       'Navigator',
       'Scrollable',
-
     ],
   ),
   Post(
@@ -195,7 +186,6 @@ final List<Post> posts = [
       'ClipRect',
       'CustomPaint',
       'BackdropFilter',
-
     ],
   ),
   Post(
@@ -205,7 +195,6 @@ final List<Post> posts = [
       'StreamBuilder',
     ],
   ),
-
   Post(
     title: '滚动',
     widgets: [
@@ -229,6 +218,62 @@ final List<Post> posts = [
       'Semantics',
       'MergeSemantics',
       'ExcludeSemantics',
+    ],
+  ),
+  Post(
+    title: 'Flutter按钮',
+    widgets: [
+      'MaterialButton',
+      'FloatingActionButton',
+      'FlatButton',
+      'IconButton',
+      'RaisedButton',
+      'PopupMenuButton',
+      'ButtonBar', //一组带边距的横排显示按钮
+      'CupertinoButton',
+      'DropdownButton',
+    ],
+  ),
+  Post(
+    title: 'Flutter 对话框',
+    widgets: [
+      'SimpleDialog',
+      'AlertDialog',
+      'BottomSheet',
+      'SnackBar',
+      'ExpansionPanel',
+    ],
+  ),
+  Post(
+    title: 'Chip Widgets',
+    widgets: [
+      'Chip',
+      'ActionChip',
+      'FilterChip',
+      'ChoiceChip',
+    ],
+  ),
+  Post(
+    title: '数据表格',
+    widgets: [
+      'DataTable',
+      'PaginatedDataTable',
+      'Card',
+      'Stepper',
+    ],
+  ),
+  Post(
+    title: '其他组件',
+    widgets: [
+      'Slider',
+      'Switch',
+      'SwitchListTile',
+      'DatePicker',
+      'TimePicker',
+      'Radio',
+      'RadioListTile',
+      'CheckBox',
+      'CheckBoxListTile',
     ],
   ),
 ];

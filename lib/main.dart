@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'DetailPage.dart';
 import 'WidgetJSON.dart';
+import 'route/flutter_buttons.dart';
+import 'route/flutter_dialogs.dart';
+import 'route/flutter_chips.dart';
+import 'route/flutter_dataTables.dart';
+import 'route/flutter_others.dart';
 
 void main() => runApp(MyApp());
 
@@ -19,6 +24,11 @@ class MyApp extends StatelessWidget {
       //设置路由：
       routes: {
         'DetailPage': (BuildContext context) => new DetailPage(''),
+        'FlutterButtons': (BuildContext context) => new FlutterButtons(),
+        'FlutterDiaglos': (BuildContext context) => new FlutterDiaglos(),
+        'FlutterChips': (BuildContext context) => new FlutterChips(),
+        'FlutterDataTables': (BuildContext context) => new FlutterDataTables(0),
+        'FlutterOthers': (BuildContext context) => new FlutterOthers(),
       },
     );
   }
@@ -54,7 +64,21 @@ class _MyHomePageState extends State<MyHomePage>
         items.add(
           GestureDetector(
             onTap:  () =>  Navigator.of(context).push(new MaterialPageRoute(builder: (context){
-              return new DetailPage(posts[x].widgets[i]);
+
+              if(x==posts.length-5){
+                return new FlutterButtons();
+              }else if(x==posts.length-4){
+                return new FlutterDiaglos();
+              }else if(x==posts.length-3){
+                return new FlutterChips();
+              }else if(x==posts.length-2){
+                return new FlutterDataTables(i);
+              }else if(x==posts.length-1){
+                return new FlutterOthers();
+              }else{
+                return new DetailPage(posts[x].widgets[i]);
+              }
+
             })),
             child: Container(
               color: Colors.black12,

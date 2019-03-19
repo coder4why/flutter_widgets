@@ -16,8 +16,34 @@ For help getting started with Flutter, view our
 samples, guidance on mobile development, and a full API reference.
 ## Example to show how to use flutter widgets;
 
-![Main](https://github.com/HuPingKang/flutter_widgets/blob/master/images/main.png "main")
-![Drawer](https://github.com/HuPingKang/flutter_widgets/blob/master/images/drawer.png "drawer")
-![Detail](https://github.com/HuPingKang/flutter_widgets/blob/master/images/detail.png  "detail")
+<h2 align"center">
+<img src="/images/ 1.png" width="280" height="498"/>
+<img src="/images/ 2.png" width="280" height="498"/>
+<img src="/images/ 3.png" width="280" height="498"/>
+<br/>
+</h2>
+<h2 align"center">
+<img src="/images/ 4.png" width="280" height="498"/>
+<img src="/images/ 5.png" width="280" height="498"/>
+<img src="/images/ 6.png" width="280" height="498"/>
+<br/>
+</h2>
+<h2 align"center">
+<img src="/images/ 7.png" width="280" height="498"/>
+<img src="/images/ 8.png" width="280" height="498"/>
+<img src="/images/ 9.png" width="280" height="498"/>
+<br/>
+</h2>
+<h2 align"center">
+<img src="/images/10.png" width="280" height="498"/>
+<img src="/images/11.png" width="280" height="498"/>
+<img src="/images/12.png" width="280" height="498"/>
+<br/>
+</h2>
+<h2 align"center">
+<img src="/images/13.png" width="280" height="498"/>
+<br/>
+</h2>
+
 
 
