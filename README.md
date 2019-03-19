@@ -35,13 +35,13 @@ samples, guidance on mobile development, and a full API reference.
 <br/>
 </h2>
 <h2 align"center">
-<img src="/images/10.png" width="280" height="610"/>
-<img src="/images/11.png" width="280" height="610"/>
-<img src="/images/12.png" width="280" height="610"/>
+<img src="/images/ 10.png" width="280" height="610"/>
+<img src="/images/ 11.png" width="280" height="610"/>
+<img src="/images/ 12.png" width="280" height="610"/>
 <br/>
 </h2>
 <h2 align"center">
-<img src="/images/13.png" width="280" height="610"/>
+<img src="/images/ 13.png" width="280" height="610"/>
 <br/>
 </h2>
 
