@@ -10,6 +10,11 @@ class Post {
 
 final List<Post> posts = [
   Post(
+    title: 'Dio',
+    widgets: [
+    ],
+  ),
+  Post(
     title: 'Material Components',
     widgets: [
       'Scaffold',

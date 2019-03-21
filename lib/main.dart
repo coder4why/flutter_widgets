@@ -6,6 +6,8 @@ import 'route/flutter_dialogs.dart';
 import 'route/flutter_chips.dart';
 import 'route/flutter_dataTables.dart';
 import 'route/flutter_others.dart';
+import 'route/flutter_interActives.dart';
+import 'route/flutter_dios.dart';
 
 void main() => runApp(MyApp());
 
@@ -29,6 +31,7 @@ class MyApp extends StatelessWidget {
         'FlutterChips': (BuildContext context) => new FlutterChips(),
         'FlutterDataTables': (BuildContext context) => new FlutterDataTables(0),
         'FlutterOthers': (BuildContext context) => new FlutterOthers(),
+        'InterActives':(BuildContext context) => new InterActives(0),
       },
     );
   }
@@ -60,36 +63,40 @@ class _MyHomePageState extends State<MyHomePage>
 //    var tabBarViews = new List<Widget>();
     for (int x = 0; x < posts.length; x++) {
       var items = new List<Widget>();
-      for (int i = 0; i < posts[x].widgets.length; i++) {
-        items.add(
-          GestureDetector(
-            onTap:  () =>  Navigator.of(context).push(new MaterialPageRoute(builder: (context){
-
-              if(x==posts.length-5){
-                return new FlutterButtons();
-              }else if(x==posts.length-4){
-                return new FlutterDiaglos();
-              }else if(x==posts.length-3){
-                return new FlutterChips();
-              }else if(x==posts.length-2){
-                return new FlutterDataTables(i);
-              }else if(x==posts.length-1){
-                return new FlutterOthers();
-              }else{
-                return new DetailPage(posts[x].widgets[i]);
-              }
-
-            })),
-            child: Container(
-              color: Colors.black12,
-              padding: EdgeInsets.only(left: 2, top: 10, bottom: 10),
-              margin: EdgeInsets.all(10),
-              child: Text(
-                posts[x].widgets[i],
-                style: TextStyle(fontSize: 17.0),
-              ),
-            )),
+      if(x==0){
+        items.add(DioWidgets());
+      }else{
+        for (int i = 0; i < posts[x].widgets.length; i++) {
+          items.add(
+            GestureDetector(
+                onTap:  () =>  Navigator.of(context).push(new MaterialPageRoute(builder: (context){
+                  if(x==7){ //交互模型
+                    return new InterActives(i);
+                  }else if(x==posts.length-5){
+                    return new FlutterButtons();//按钮
+                  }else if(x==posts.length-4){
+                    return new FlutterDiaglos();//对话框
+                  }else if(x==posts.length-3){
+                    return new FlutterChips(); //Chips
+                  }else if(x==posts.length-2){
+                    return new FlutterDataTables(i); //列表
+                  }else if(x==posts.length-1){
+                    return new FlutterOthers(); //其他
+                  }else{
+                    return new DetailPage(posts[x].widgets[i]); //详情
+                  }
+                })),
+                child: Container(
+                  color: Colors.black12,
+                  padding: EdgeInsets.only(left: 2, top: 10, bottom: 10),
+                  margin: EdgeInsets.all(10),
+                  child: Text(
+                    posts[x].widgets[i],
+                    style: TextStyle(fontSize: 17.0),
+                  ),
+                )),
           );
+      }
       }
       listViews.add(new ListView(
         children: items,
