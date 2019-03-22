@@ -19,7 +19,6 @@ class _DetailPageState extends State<DetailPage>
   AnimationController _controller;
   var bsJSon;
   String imageUrl = '';
-
   _loadDatas() async {
     //https://jsonplaceholder.typicode.com/posts
 //    http://d.api.budejie.com/topic/list/zuixin/41/bs0315-ios-4.5.9/0-20.json
@@ -56,6 +55,7 @@ class _DetailPageState extends State<DetailPage>
     super.dispose();
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -63,7 +63,7 @@ class _DetailPageState extends State<DetailPage>
           appBar: AppBar(
             title: Text(widget.title, style: TextStyle(fontSize: 15.0)),
           ),
-          body: Center(
+          body:  Center(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,

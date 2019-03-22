@@ -20,6 +20,8 @@ dependencies:
   flutter:
     sdk: flutter
   fluttertoast: ^3.0.1
+  video_player: ^0.10.0+2
+  audioplayer: ^0.5.2
   toast:
   http:
   dio:

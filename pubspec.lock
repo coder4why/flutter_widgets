@@ -8,6 +8,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.8"
+  audioplayer:
+    dependency: "direct main"
+    description:
+      name: audioplayer
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.5.2"
   boolean_selector:
     dependency: transitive
     description:
@@ -184,5 +191,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.8"
+  video_player:
+    dependency: "direct main"
+    description:
+      name: video_player
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.10.0+2"
 sdks:
   dart: ">=2.1.0 <3.0.0"
+  flutter: ">=0.2.5 <2.0.0"

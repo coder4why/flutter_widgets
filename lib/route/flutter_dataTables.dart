@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../post.dart';
+import 'package:flutter_widgets/models/post.dart';
 
 class FlutterDataTables extends StatefulWidget {
   //外部参数
