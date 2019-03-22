@@ -2,20 +2,14 @@
 
 A new Flutter application.
 
-## Getting Started
+#### 内容涉及：
+###### 1.基础界面的搭建，常见Widgets的使用；
+###### 2.Dio网络请求、JSON Parse与数据渲染；
+###### 3.下拉刷新与上拉加载更多；
+###### 4.音视频播放；
+###### 5.  其他；
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.io/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.io/docs/cookbook)
-
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
-## Example to show how to use flutter widgets;
-
+## App兼容iOS与Android；
 <h2 align"center">
 <img src="/images/1.png" width="210" height="457"/>
 <img src="/images/2.png" width="210" height="457"/>
