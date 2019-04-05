@@ -67,6 +67,20 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_walkthrough:
+    dependency: "direct main"
+    description:
+      name: flutter_walkthrough
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.1"
+  flutter_webview_plugin:
+    dependency: "direct main"
+    description:
+      name: flutter_webview_plugin
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.3.3"
   fluttertoast:
     dependency: "direct main"
     description:
@@ -115,7 +129,14 @@ packages:
       name: pedantic
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.4.0"
+    version: "1.5.0"
+  pulltorefresh_flutter:
+    dependency: "direct main"
+    description:
+      name: pulltorefresh_flutter
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.9"
   quiver:
     dependency: transitive
     description:
@@ -134,7 +155,7 @@ packages:
       name: source_span
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.5.4"
+    version: "1.5.5"
   stack_trace:
     dependency: transitive
     description:
@@ -197,7 +218,7 @@ packages:
       name: video_player
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.10.0+2"
+    version: "0.10.0+4"
 sdks:
-  dart: ">=2.1.0 <3.0.0"
+  dart: ">=2.2.0 <3.0.0"
   flutter: ">=0.2.5 <2.0.0"

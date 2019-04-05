@@ -12,18 +12,33 @@ import 'route/flutter_dios_detail.dart';
 import 'models/dioDatas.dart';
 import 'route/flutter_musics.dart';
 import 'route/flutter_music_detail.dart';
-
+import 'route/flutter_videos.dart';
+import 'package:flutter/services.dart';
+import 'route/flutter_tuijians.dart';
+import 'route/flutter_listen_music.dart';
+import 'route/flutter_listen_music_detail.dart';
+import 'route/flutter_wynews.dart';
+import 'route/flutter_wynews_detail.dart';
 void main() => runApp(MyApp());
+//
 
 Color themeColor = Colors.green;
 
 class MyApp extends StatelessWidget {
+  static const MaterialColor blackColor =
+      const MaterialColor(_redPrimaryValue, const <int, Color>{
+    200: const Color(0xFFE57373),
+    500: const Color(_redPrimaryValue),
+  });
+  static const int _redPrimaryValue = 0xFF333333;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Widgets',
       theme: ThemeData(
-        primarySwatch: themeColor,
+//        primarySwatch: blackColor,
+        primaryColor: blackColor,
       ),
       debugShowCheckedModeBanner: true,
       home: MyHomePage(),
@@ -40,6 +55,10 @@ class MyApp extends StatelessWidget {
             new DiosDetail(DioData('', '', '', '', '', '', '', '', '', '')),
         'MusicPage': (BuildContext context) => new MusicPage(),
         'MusicDetailPage': (BuildContext context) => new MusicDetailPage(null),
+        'VideoPage': (BuildContext context) => new VideoPage(),
+        'TuiJianPage': (BuildContext context) => new TuiJianDemo(false),
+        'ListenMusicDetailPage': (BuildContext context) => new ListenMusicDetailPage('','',),
+        'WYNewsDetailPage': (BuildContext context) =>new WYNewsDetailPage(null),
       },
     );
   }
@@ -52,6 +71,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage>
     with SingleTickerProviderStateMixin {
   static TabController _tabController;
+  int _currentIndex = 0;
 
   @override
   void initState() {
@@ -73,6 +93,10 @@ class _MyHomePageState extends State<MyHomePage>
       var items = new List<Widget>();
       if (x == 0) {
         items.add(DioWidgets());
+      } else if(x==1){
+        items.add(TuiJianDemo(true));
+      } else if(x==2){
+        items.add(WYNewsPage());
       } else {
         for (int i = 0; i < posts[x].widgets.length; i++) {
           items.add(
@@ -118,18 +142,19 @@ class _MyHomePageState extends State<MyHomePage>
   _listTiles() {
     var tiles = new List<Widget>();
     var icons = [Icons.message, Icons.favorite, Icons.settings];
-    var titles = ['听音乐', '听音乐', '听音乐'];
+    var titles = ['听音乐', '看视频', '设置'];
     for (int i = 0; i < titles.length; i++) {
       tiles.add(ListTile(
           title: Text(
             titles[i],
-            textAlign: TextAlign.right,
+            style: TextStyle(fontSize: 18),
+            textAlign: TextAlign.left,
           ),
           trailing: Icon(icons[i], color: Colors.black12, size: 22.0),
-          onTap: () {
+          onTap: () { i==2?null:
             Navigator.of(context)
                 .push(new MaterialPageRoute(builder: (context) {
-              return new MusicPage();
+              return i == 0 ? new MusicPage() : VideoPage();
             }));
           }));
     }
@@ -146,17 +171,18 @@ class _MyHomePageState extends State<MyHomePage>
                 Text('Ds.Hpk', style: TextStyle(fontWeight: FontWeight.bold)),
             accountEmail: Text('https://gtihub.com/hupingkang'),
             currentAccountPicture: CircleAvatar(
+              backgroundColor: Theme.of(context).primaryColor,
               backgroundImage: NetworkImage(
                   'https://gss3.bdstatic.com/7Po3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike116%2C5%2C5%2C116%2C38/sign=cec6b575a944ad343ab28fd5b1cb6791/d4628535e5dde711cf0a546eafefce1b9c166149.jpg'),
             ),
             decoration: BoxDecoration(
-              color: Colors.green[200],
+//              color: Colors.green[200],
               image: DecorationImage(
                 image: NetworkImage(
                     'https://gss2.bdstatic.com/-fo3dSag_xI4khGkpoWK1HF6hhy/baike/h%3D250/sign=65c54448c4ea15ce5eeee70c86023a25/fcfaaf51f3deb48feaaa8b13fd1f3a292cf5783f.jpg'),
                 fit: BoxFit.cover,
                 colorFilter: ColorFilter.mode(
-                    Colors.green[200].withOpacity(0.6), BlendMode.hardLight),
+                    Theme.of(context).primaryColor, BlendMode.hardLight),
               ),
             ),
           ),
@@ -169,7 +195,7 @@ class _MyHomePageState extends State<MyHomePage>
   }
 
   _appBars() {
-    var style = TextStyle(fontSize: 14.0, color: Colors.white);
+    var style = TextStyle(fontSize: 18.0, color: Colors.white);
     var items = new List<Widget>();
     for (int i = 0; i < posts.length; i++) {
       items.add(new Tab(
@@ -181,24 +207,61 @@ class _MyHomePageState extends State<MyHomePage>
     }
     return new TabBar(
       tabs: items,
+      indicatorColor: Colors.white,
       indicatorSize: TabBarIndicatorSize.label,
       isScrollable: true,
       controller: _tabController,
     );
   }
 
+  //调用原生方法：打开系统相机和相册；
+  _openLibrary() {
+    MethodChannel channel = MethodChannel('flutter_widgets_demo');
+    channel.invokeMethod('openLibrary');
+  }
+
   _appBar(BuildContext context) {
     return new DefaultTabController(
         length: posts.length,
         child: Scaffold(
-          drawer: _drawer(),
-          appBar: AppBar(
-            title: Text('Flutter Widgets Use'),
-            bottom: _appBars(),
-          ),
-          body: new TabBarView(
-            children: _listItems(context),
-            controller: _tabController,
+          floatingActionButton: _currentIndex == 1
+              ? null
+              : FloatingActionButton(
+                  backgroundColor: Theme.of(context).primaryColor,
+                  onPressed: _openLibrary,
+                  child: Icon(
+                    Icons.camera,
+                    color: Colors.white,
+                  ),
+                ),
+          drawer: _currentIndex == 1 ? null : _drawer(),
+          appBar: _currentIndex == 1
+              ? null
+              : AppBar(
+                  title: _appBars() //Text('Flutter Widgets Use'),
+//                  bottom: ,
+                ),
+          body: _currentIndex == 1
+              ? ListenMusicPage()
+              : new TabBarView(
+                  children: _listItems(context),
+                  controller: _tabController,
+                ),
+          bottomNavigationBar: BottomNavigationBar(
+            items: [
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.home), title: Text('首页')),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.library_music), title: Text('听歌'))
+            ],
+//            fixedColor: Colors.red,
+            type: BottomNavigationBarType.fixed,
+            currentIndex: _currentIndex,
+            onTap: (index) {
+              setState(() {
+                _currentIndex = index;
+              });
+            },
           ),
         ));
   }

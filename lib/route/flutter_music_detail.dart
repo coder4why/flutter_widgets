@@ -53,16 +53,15 @@ class _MusicDetailPageState extends State<MusicDetailPage>
     _playMusic();
   }
 
-  Future<void> _playMusic() async{
-
-    if(isPlaying==true){
-        await audioPlayer.pause();
-        controller_record.stop(canceled: false);
-        controller_needle.reverse();
-        setState(() {
-          isPlaying = false;
-        });
-    }else {
+  Future<void> _playMusic() async {
+    if (isPlaying == true) {
+      await audioPlayer.pause();
+      controller_record.stop(canceled: false);
+      controller_needle.reverse();
+      setState(() {
+        isPlaying = false;
+      });
+    } else {
       await audioPlayer.play(widget.model.url);
       controller_record.forward();
       controller_needle.forward();
@@ -70,8 +69,8 @@ class _MusicDetailPageState extends State<MusicDetailPage>
         isPlaying = true;
       });
     }
-
   }
+
   @override
   void dispose() {
     audioPlayer.stop();
@@ -82,7 +81,6 @@ class _MusicDetailPageState extends State<MusicDetailPage>
 
   _centerCirclePic() {
     return Container(
-//              width: MediaQuery.of(context).size.width,
       alignment: Alignment.center,
       child: ClipRRect(
         borderRadius: BorderRadius.all(Radius.circular(150)),
@@ -98,8 +96,12 @@ class _MusicDetailPageState extends State<MusicDetailPage>
 
   _picAni() {
     return new Container(
-      child: RotateRecord(animation: _commonTween.animate(controller_record),imageUrl:widget.model.pic,),
+      child: RotateRecord(
+        animation: _commonTween.animate(controller_record),
+        imageUrl: widget.model.pic,
+      ),
       margin: EdgeInsets.only(top: 100.0),
+
     );
   }
 
@@ -160,7 +162,7 @@ class _MusicDetailPageState extends State<MusicDetailPage>
               color: Colors.black87,
               icon: Icon(isPlaying ? Icons.pause : Icons.play_arrow),
               onPressed: () {
-               _playMusic();
+                _playMusic();
               }),
         ],
       ),
@@ -185,6 +187,7 @@ class _MusicDetailPageState extends State<MusicDetailPage>
         onPressed: () {
           Navigator.pop(context);
         },
+        backgroundColor: Theme.of(context).primaryColor,
         child: Icon(Icons.arrow_back),
       ),
     );

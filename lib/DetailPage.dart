@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:toast/toast.dart';
 import 'dart:math';
+import 'package:flutter_walkthrough/flutter_walkthrough.dart';
+import 'package:flutter_walkthrough/walkthrough.dart';
 
 class DetailPage extends StatefulWidget {
   //外部参数
@@ -19,6 +21,29 @@ class _DetailPageState extends State<DetailPage>
   AnimationController _controller;
   var bsJSon;
   String imageUrl = '';
+  final List<Walkthrough> list = [
+    Walkthrough(
+      title: "Title 1",
+      content: "Content 1",
+      imageIcon: Icons.restaurant_menu,
+    ),
+    Walkthrough(
+      title: "Title 2",
+      content: "Content 2",
+      imageIcon: Icons.search,
+    ),
+    Walkthrough(
+      title: "Title 3",
+      content: "Content 3",
+      imageIcon: Icons.shopping_cart,
+    ),
+    Walkthrough(
+      title: "Title 4",
+      content: "Content 4",
+      imageIcon: Icons.verified_user,
+    ),
+  ];
+
   _loadDatas() async {
     //https://jsonplaceholder.typicode.com/posts
 //    http://d.api.budejie.com/topic/list/zuixin/41/bs0315-ios-4.5.9/0-20.json
@@ -55,7 +80,6 @@ class _DetailPageState extends State<DetailPage>
     super.dispose();
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -63,25 +87,28 @@ class _DetailPageState extends State<DetailPage>
           appBar: AppBar(
             title: Text(widget.title, style: TextStyle(fontSize: 15.0)),
           ),
-          body:  Center(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                Text(
-                  widget.title,
-                  style: TextStyle(fontSize: 20.0),
+          body: Center(
+            child: IntroScreen(list, null
+//              new MaterialPageRoute(builder: (context) => null),
                 ),
-                ClipRRect(
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
-                  child: Image.network(
-                    imageUrl,
-                    fit: BoxFit.fitWidth,
-                    width: 250,
-                  ),
-                )
-              ],
-            ),
+//            child: Column(
+//              crossAxisAlignment: CrossAxisAlignment.center,
+//              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//              children: <Widget>[
+//                Text(
+//                  widget.title,
+//                  style: TextStyle(fontSize: 20.0),
+//                ),
+//                ClipRRect(
+//                  borderRadius: BorderRadius.all(Radius.circular(10)),
+//                  child: Image.network(
+//                    imageUrl,
+//                    fit: BoxFit.fitWidth,
+//                    width: 250,
+//                  ),
+//                )
+//              ],
+//            ),
           )),
     );
   }

@@ -10,7 +10,17 @@ class Post {
 
 final List<Post> posts = [
   Post(
-    title: 'Dio',
+    title: '视频',
+    widgets: [
+    ],
+  ),
+  Post(
+    title: '推荐',
+    widgets: [
+    ],
+  ),
+  Post(
+    title: '头条',
     widgets: [
     ],
   ),
@@ -157,19 +167,19 @@ final List<Post> posts = [
 //      'AnimatedWidgetBaseState',
 //    ],
 //  ),
-  Post(
-    title: '交互模型',
-    widgets: [
-      'LongPressDraggable',
-      'GestureDetector',
-      'DragTarget',
-      'Dismissible',
-      'IgnorePointer',
-      'AbsorbPointer',
-      'Navigator',
-      'Scrollable',
-    ],
-  ),
+//  Post(
+//    title: '交互模型',
+//    widgets: [
+//      'LongPressDraggable',
+//      'GestureDetector',
+//      'DragTarget',
+//      'Dismissible',
+//      'IgnorePointer',
+//      'AbsorbPointer',
+//      'Navigator',
+//      'Scrollable',
+//    ],
+//  ),
 //  Post(
 //    title: '样式',
 //    widgets: [
@@ -225,60 +235,60 @@ final List<Post> posts = [
 //      'ExcludeSemantics',
 //    ],
 //  ),
-  Post(
-    title: 'Flutter按钮',
-    widgets: [
-      'MaterialButton',
-      'FloatingActionButton',
-      'FlatButton',
-      'IconButton',
-      'RaisedButton',
-      'PopupMenuButton',
-      'ButtonBar', //一组带边距的横排显示按钮
-      'CupertinoButton',
-      'DropdownButton',
-    ],
-  ),
-  Post(
-    title: 'Flutter 对话框',
-    widgets: [
-      'SimpleDialog',
-      'AlertDialog',
-      'BottomSheet',
-      'SnackBar',
-      'ExpansionPanel',
-    ],
-  ),
-  Post(
-    title: 'Chip Widgets',
-    widgets: [
-      'Chip',
-      'ActionChip',
-      'FilterChip',
-      'ChoiceChip',
-    ],
-  ),
-  Post(
-    title: '数据表格',
-    widgets: [
-      'DataTable',
-      'PaginatedDataTable',
-      'Card',
-      'Stepper',
-    ],
-  ),
-  Post(
-    title: '其他组件',
-    widgets: [
-      'Slider',
-      'Switch',
-      'SwitchListTile',
-      'DatePicker',
-      'TimePicker',
-      'Radio',
-      'RadioListTile',
-      'CheckBox',
-      'CheckBoxListTile',
-    ],
-  ),
+//  Post(
+//    title: 'Flutter按钮',
+//    widgets: [
+//      'MaterialButton',
+//      'FloatingActionButton',
+//      'FlatButton',
+//      'IconButton',
+//      'RaisedButton',
+//      'PopupMenuButton',
+//      'ButtonBar', //一组带边距的横排显示按钮
+//      'CupertinoButton',
+//      'DropdownButton',
+//    ],
+//  ),
+//  Post(
+//    title: 'Flutter 对话框',
+//    widgets: [
+//      'SimpleDialog',
+//      'AlertDialog',
+//      'BottomSheet',
+//      'SnackBar',
+//      'ExpansionPanel',
+//    ],
+//  ),
+//  Post(
+//    title: 'Chip Widgets',
+//    widgets: [
+//      'Chip',
+//      'ActionChip',
+//      'FilterChip',
+//      'ChoiceChip',
+//    ],
+//  ),
+//  Post(
+//    title: '数据表格',
+//    widgets: [
+//      'DataTable',
+//      'PaginatedDataTable',
+//      'Card',
+//      'Stepper',
+//    ],
+//  ),
+//  Post(
+//    title: '其他组件',
+//    widgets: [
+//      'Slider',
+//      'Switch',
+//      'SwitchListTile',
+//      'DatePicker',
+//      'TimePicker',
+//      'Radio',
+//      'RadioListTile',
+//      'CheckBox',
+//      'CheckBoxListTile',
+//    ],
+//  ),
 ];

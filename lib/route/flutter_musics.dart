@@ -16,7 +16,7 @@ class _MusicPageState extends State<MusicPage>
   @override
   void initState() {
     super.initState();
-    _requestMusics('薛之谦');
+    _requestMusics('杨宗纬');
   }
 
   Future<void> _requestMusics(String searchText) async {
@@ -62,7 +62,7 @@ class _MusicPageState extends State<MusicPage>
               border: InputBorder.none,
               //去掉下划线
               contentPadding: const EdgeInsets.symmetric(vertical: 8.0),
-              hintText: '查找精彩动态内容',
+              hintText: '歌曲名、专辑名称、歌手',
               hintStyle: TextStyle(color: Colors.black26),
 //                labelText: '左上角',
               prefixIcon: Icon(

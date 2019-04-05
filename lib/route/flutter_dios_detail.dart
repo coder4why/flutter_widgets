@@ -60,6 +60,7 @@ class _DiosDetailState extends State<DiosDetail>
     return Material(
         child: Scaffold(
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Theme.of(context).primaryColor,
         onPressed: () {
           setState(() {
             isPlaying ? controller.pause() : controller.play();

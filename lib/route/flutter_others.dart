@@ -89,30 +89,26 @@ class _FlutterOthersState extends State<FlutterOthers>
         context: context,
         initialDate: DateTime.now(),
         firstDate: DateTime(2000),
-        lastDate: DateTime(2030)
-    );
+        lastDate: DateTime(2030));
 
-
-    if(time==null){
+    if (time == null) {
       return;
     }
 
     Toast.show(time.toLocal().toString(), context);
-
   }
 
   _showTimePicker() async {
-     final TimeOfDay day = await showTimePicker(
+    final TimeOfDay day = await showTimePicker(
       context: context,
       initialTime: TimeOfDay(hour: 10, minute: 58),
     );
 
-     if(day==null){
-       return;
-     }
+    if (day == null) {
+      return;
+    }
 
-     Toast.show(day.hour.toString()+':'+day.minute.toString(), context);
-
+    Toast.show(day.hour.toString() + ':' + day.minute.toString(), context);
   }
 
   _datePicker() {
@@ -174,20 +170,18 @@ class _FlutterOthersState extends State<FlutterOthers>
   _checkBoxListTile() {
     List checks = new List<Widget>();
     for (int i = 0; i < checkBoxTiles.length; i++) {
-      checks.add(
-          CheckboxListTile(
-            activeColor: Colors.orange,
-              title: Text(i == 0 ? 'CheckBox A' : 'CheckBox B'),
-              subtitle: Text(i == 0 ? 'Description A' : 'Description B'),
-              secondary: Icon(Icons.wb_sunny),
-              selected: checkBoxTiles[i],
-              value: checkBoxTiles[i],
-              onChanged: (value) {
-                setState(() {
-                  checkBoxTiles[i] = value;
-                });
-              })
-      );
+      checks.add(CheckboxListTile(
+          activeColor: Colors.orange,
+          title: Text(i == 0 ? 'CheckBox A' : 'CheckBox B'),
+          subtitle: Text(i == 0 ? 'Description A' : 'Description B'),
+          secondary: Icon(Icons.wb_sunny),
+          selected: checkBoxTiles[i],
+          value: checkBoxTiles[i],
+          onChanged: (value) {
+            setState(() {
+              checkBoxTiles[i] = value;
+            });
+          }));
     }
     return checks;
   }
@@ -195,6 +189,64 @@ class _FlutterOthersState extends State<FlutterOthers>
   _sizeBox() {
     return SizedBox(
       height: 20,
+    );
+  }
+
+  Widget _expansionPanel(BuildContext context, bool value) {
+    return Container(
+      color: Colors.pink,
+      padding: EdgeInsets.all(15),
+      alignment: Alignment.centerLeft,
+      child: Text(
+        'ARE YOU OK?',
+        style: TextStyle(color: Colors.white,fontSize: 20),
+      ),
+    );
+  }
+
+  Widget _rowContent(BuildContext context, int index) {
+    return Text(
+      '我很OK啊！😄',
+      style: TextStyle(color: Colors.black,fontSize: 16),
+    );
+  }
+
+  _listBody() {
+    return Container(
+        height: 150,
+        color: Colors.yellow,
+        padding: EdgeInsets.only(left: 15,right: 15,bottom: 15),
+        child: ListView.builder(
+          itemBuilder: _rowContent,
+          itemCount: 5,
+          physics: NeverScrollableScrollPhysics(),
+        ));
+  }
+
+  List<bool> isExpands = [false, false, false];
+
+  _expansions() {
+    List<ExpansionPanel> exPansions = new List<ExpansionPanel>();
+
+    for (int i = 0; i < isExpands.length; i++) {
+      exPansions.add(ExpansionPanel(
+          isExpanded: isExpands[i],
+          headerBuilder: _expansionPanel,
+          body: _listBody()));
+    }
+    return exPansions;
+  }
+
+  _expandList() {
+    return ExpansionPanelList(
+      animationDuration: kThemeAnimationDuration,
+      children: _expansions(),
+      expansionCallback: (int index, bool isExpand) {
+        print('点击了第$index,isExpand:$isExpand');
+        setState(() {
+          isExpands[index] = !isExpands[index];
+        });
+      },
     );
   }
 
@@ -219,9 +271,11 @@ class _FlutterOthersState extends State<FlutterOthers>
 
     widgets.add(_checkBox());
 
-    _checkBoxListTile().map((item){
+    _checkBoxListTile().map((item) {
       widgets.add(item);
     }).toList();
+
+    widgets.add(_expandList());
 
     return widgets;
   }

@@ -25,11 +25,15 @@ dependencies:
   toast:
   http:
   dio:
+  flutter_walkthrough:
+  flutter_webview_plugin:
 
+#  flutter_radial_menu:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
+  pulltorefresh_flutter: "^0.1.9"
 
 dev_dependencies:
   flutter_test:
